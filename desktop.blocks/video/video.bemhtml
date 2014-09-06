@@ -1,0 +1,10 @@
+block('video')(js()(true),
+    match(this.ctx.type === "youtube")(
+        content()(function () {
+            var ctx = this.ctx,
+                out = [];
+            ctx.id && out.push('<iframe style="width:' + ctx.width + 'px; height:' + ctx.height + 'px" src="http://www.youtube.com/embed/' + ctx.id + '" frameborder="0" allowfullscreen="allowfullscreen" data-link="http://www.youtube.com/watch?v=' + ctx.id + '"></iframe>');
+            return out;
+        })
+    )
+);
